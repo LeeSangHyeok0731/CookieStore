@@ -8,7 +8,6 @@ export default function InformationInput() {
   const [cookieValue, setCookieValue] = useState<string[]>([]);
 
   const handleClickSet = () => {
-    console.log(name, value);
     setCookie(name, value, {
       path: "/",
       secure: true,
