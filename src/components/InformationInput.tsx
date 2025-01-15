@@ -5,8 +5,12 @@ export default function InformationInput() {
   const [name, setName] = useState<string>("");
   const [value, setValue] = useState<string>("");
 
-  const handleClick = () => {
-    setCookie(name, value);
+  const handleClickSet = () => {
+    console.log(name, value);
+    setCookie(name, value, {
+      path: "/",
+      secure: true,
+    });
   };
 
   return (
@@ -25,7 +29,7 @@ export default function InformationInput() {
           setValue(e.target.value);
         }}
       ></input>
-      <button onClick={handleClick}>저장</button>
+      <button onClick={handleClickSet}>저장</button>
     </>
   );
 }
