@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { setCookie } from "./CookieStore";
+import { getCookie, setCookie } from "./CookieStore";
 
 export default function InformationInput() {
   const [name, setName] = useState<string>("");
   const [value, setValue] = useState<string>("");
+
+  const [cookieValue, setCookieValue] = useState<string[]>([]);
 
   const handleClickSet = () => {
     console.log(name, value);
@@ -11,6 +13,7 @@ export default function InformationInput() {
       path: "/",
       secure: true,
     });
+    setCookieValue(cookieValue.concat([name, getCookie(name)]));
   };
 
   return (
@@ -29,7 +32,11 @@ export default function InformationInput() {
           setValue(e.target.value);
         }}
       ></input>
+      <br />
       <button onClick={handleClickSet}>저장</button>
+      {cookieValue.map((value, index) => {
+        return <h1>{`${index}번 ${value[0]} ${value[1]}`}</h1>;
+      })}
     </>
   );
 }
