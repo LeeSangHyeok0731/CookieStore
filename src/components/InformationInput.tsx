@@ -13,7 +13,7 @@ export default function InformationInput() {
       path: "/",
       secure: true,
     });
-    setCookieValue(cookieValue.concat([name, getCookie(name)]));
+    setCookieValue(cookieValue.concat(getCookie(name)));
   };
 
   return (
@@ -35,7 +35,7 @@ export default function InformationInput() {
       <br />
       <button onClick={handleClickSet}>저장</button>
       {cookieValue.map((value, index) => {
-        return <h1>{`${index}번 ${value[0]} ${value[1]}`}</h1>;
+        return <h1 key={index}>{`${index}번 ${value}`}</h1>;
       })}
     </>
   );
