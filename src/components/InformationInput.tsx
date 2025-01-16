@@ -9,19 +9,24 @@ export default function InformationInput() {
 
   const [data, setData] = useState<[]>([]);
 
+  const clearValue = () => {
+    setName("");
+    setValue("");
+    setDeleteName("");
+  };
+
   const handleClickSet = () => {
     setCookie(name, value, {
       path: "/",
       secure: true,
     });
-    setName("");
-    setValue("");
+    clearValue();
     setData(getAllCookie());
   };
 
   const handleClickDelete = () => {
     deleteCookie(deleteName);
-    setDeleteName("");
+    clearValue();
     setData(getAllCookie());
   };
 
