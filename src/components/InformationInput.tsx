@@ -66,7 +66,7 @@ export default function InformationInput() {
 
       {Object.entries(data).map(([key, value]) => (
         <h1 key={key}>
-          {key}: {value}
+          key: {key}, value: {value}
         </h1>
       ))}
     </>
