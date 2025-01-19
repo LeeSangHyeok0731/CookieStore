@@ -42,14 +42,14 @@ export default function InformationInput() {
         onChange={(e) => {
           setName(e.target.value);
         }}
-      ></input>
+      />
       <input
         placeholder="값을 입력해 주세요"
         value={value}
         onChange={(e) => {
           setValue(e.target.value);
         }}
-      ></input>
+      />
       <br />
       <button onClick={handleClickSet}>저장</button>
 
@@ -60,7 +60,7 @@ export default function InformationInput() {
         onChange={(e) => {
           setDeleteName(e.target.value);
         }}
-      ></input>
+      />
       <br />
       <button onClick={handleClickDelete}>삭제</button>
 
